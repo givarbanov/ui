@@ -5,13 +5,13 @@ $color-bg-inactive-el: #eeeeee;
 
 $default-font-size: 1.6rem;
 
-$ha-el-height: 8rem;
+$ha-el-height: 7rem;
 
 @mixin move-label-up {
     font-size: 1.4rem;
     position: absolute;
     top: 50%;
-    transform: translate(1rem, -3.5rem); 
+    transform: translate(1rem, -3rem); 
 }
 
 @mixin center-y {
@@ -24,9 +24,7 @@ $ha-el-height: 8rem;
     font-size: $default-font-size;
     color: $color-text-active-el;
     text-indent: 1rem;
-    padding-top: .5rem;
     width: 100%;
-    height: 100%; 
     outline: none;
     border: none;
 }
@@ -77,6 +75,10 @@ body {
     box-sizing: border-box;
 }
 
+div:not(.ha-el-radio) {
+    margin: 0.5rem .5rem;
+}
+
 [class*="ha-el"] {
     height: $ha-el-height;
     width: 30rem;
@@ -85,12 +87,11 @@ body {
     display: inline-block;
     float: left;
 
-    margin: 0.5rem .5rem;
-
-    & > span,
     & > input[type="text"],
     & > select {
         @include default-ha-el-style;
+        height: 100%;
+        padding-top: 1.7rem;
     }
 
     & > label {
@@ -123,9 +124,10 @@ body {
     background-color: $color-bg-inactive-el;
 
     & > span {
-        display: block;
-        vertical-align: middle;
-        line-height: $ha-el-height;
+        @include default-ha-el-style;
+
+        position: absolute;
+        top: 50%;
     } 
 }
 
@@ -142,9 +144,8 @@ body {
     &::before {
         content: attr(data-v) "";
         display: block;
-        vertical-align: middle;
-        line-height: $ha-el-height;
         position: absolute;
+        top: 50%;
         @include default-ha-el-style;
     }
 }
@@ -205,5 +206,19 @@ body {
         &::after {
             @include radio-check-box-span-after;
         }
+    }
+}
+
+[class*="ha-td-el"] {
+    height: $ha-el-height;
+    width: 30rem;
+    border: 1px solid $color-el-border;
+    position: relative;
+    display: inline-block;
+    float: left;
+
+    & > input {
+        @include default-ha-el-style;
+        height: 100%;
     }
 }

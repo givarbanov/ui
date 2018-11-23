@@ -14,25 +14,26 @@ body {
   font-weight: 400;
   box-sizing: border-box; }
 
+div:not(.ha-el-radio) {
+  margin: 0.5rem .5rem; }
+
 [class*="ha-el"] {
-  height: 8rem;
+  height: 7rem;
   width: 30rem;
   border: 1px solid #212121;
   position: relative;
   display: inline-block;
-  float: left;
-  margin: 0.5rem .5rem; }
-  [class*="ha-el"] > span,
+  float: left; }
   [class*="ha-el"] > input[type="text"],
   [class*="ha-el"] > select {
     font-size: 1.6rem;
     color: #424242;
     text-indent: 1rem;
-    padding-top: .5rem;
     width: 100%;
-    height: 100%;
     outline: none;
-    border: none; }
+    border: none;
+    height: 100%;
+    padding-top: 1.7rem; }
   [class*="ha-el"] > label {
     font-size: 1.6rem;
     color: #9e9e9e;
@@ -49,19 +50,24 @@ body {
     font-size: 1.4rem;
     position: absolute;
     top: 50%;
-    transform: translate(1rem, -3.5rem); }
+    transform: translate(1rem, -3rem); }
   [class*="ha-el"][data-v] > label {
     font-size: 1.4rem;
     position: absolute;
     top: 50%;
-    transform: translate(1rem, -3.5rem); }
+    transform: translate(1rem, -3rem); }
 
 .ha-el-span {
   background-color: #eeeeee; }
   .ha-el-span > span {
-    display: block;
-    vertical-align: middle;
-    line-height: 8rem; }
+    font-size: 1.6rem;
+    color: #424242;
+    text-indent: 1rem;
+    width: 100%;
+    outline: none;
+    border: none;
+    position: absolute;
+    top: 50%; }
 
 .ha-el-select > select {
   opacity: 0; }
@@ -72,22 +78,19 @@ body {
 .ha-el-select::before {
   content: attr(data-v) "";
   display: block;
-  vertical-align: middle;
-  line-height: 8rem;
   position: absolute;
+  top: 50%;
   font-size: 1.6rem;
   color: #424242;
   text-indent: 1rem;
-  padding-top: .5rem;
   width: 100%;
-  height: 100%;
   outline: none;
   border: none; }
 
 .ha-el-radio-group {
   width: 61rem; }
   .ha-el-radio-group .ha-el-radio {
-    line-height: 8rem;
+    line-height: 7rem;
     width: 29rem !important;
     height: 7rem;
     border: none; }
@@ -124,7 +127,7 @@ body {
         border-radius: 50%; }
 
 .ha-el-checkbox-input {
-  line-height: 8rem; }
+  line-height: 7rem; }
   .ha-el-checkbox-input input {
     display: none; }
     .ha-el-checkbox-input input:checked + label > span::after {
@@ -154,3 +157,19 @@ body {
       opacity: 0;
       -webkit-transition: opacity .2s;
       transition: opacity .2s; }
+
+[class*="ha-td-el"] {
+  height: 7rem;
+  width: 30rem;
+  border: 1px solid #212121;
+  position: relative;
+  display: inline-block;
+  float: left; }
+  [class*="ha-td-el"] > input {
+    font-size: 1.6rem;
+    color: #424242;
+    text-indent: 1rem;
+    width: 100%;
+    outline: none;
+    border: none;
+    height: 100%; }
