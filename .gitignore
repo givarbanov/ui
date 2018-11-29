@@ -1,2 +1,5 @@
 node_modules/
 css/style-old.css
+.DS_Store
+/dist
+/package-lock.json

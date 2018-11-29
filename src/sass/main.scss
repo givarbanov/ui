@@ -9,14 +9,14 @@ $ha-el-height: 7rem;
 
 @mixin move-label-up {
     font-size: 1.4rem;
-    position: absolute;
     top: 50%;
-    transform: translate(1rem, -3rem); 
+    left: 1rem;
+    transform: translate(1rem, -3rem);
 }
 
 @mixin center-y {
-    position: absolute;
     top: 50%;
+    left: 1rem;
     transform: translateY(-50%);
 }
 
@@ -27,6 +27,8 @@ $ha-el-height: 7rem;
     width: 100%;
     outline: none;
     border: none;
+    display: block;
+    line-height: 1;
 }
 
 @mixin radio-check-box-span {
@@ -97,26 +99,23 @@ div:not(.ha-el-radio) {
     & > label {
         font-size: $default-font-size;
         color: $color-text-light;
-        text-indent: 1rem;
+        position: absolute;
         cursor: text;
         display: inline-block;
+        @include move-label-up;
     }
 
-    &:not([data-v]) {
+    &:not(.data) {
         
         & > label {
             @include center-y;
             transition: all .3s;
         }
 
-        & > input[type="text"]:focus + label,
-        & > select:focus + label {
+        & > select:focus ~ label,
+        & > input[type="text"]:focus + label {
             @include move-label-up;
         }
-    }
-
-    &[data-v] > label {
-        @include move-label-up;
     }
 }
 
@@ -141,11 +140,11 @@ div:not(.ha-el-radio) {
         z-index: -1;
     }
 
-    &::before {
-        content: attr(data-v) "";
+    & > span {
         display: block;
         position: absolute;
         top: 50%;
+        z-index: -1;
         @include default-ha-el-style;
     }
 }
